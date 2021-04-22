@@ -5,8 +5,8 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: "/og/:id",
-        destination: "/api/thumb/:id",
+        source: "/og/:roomID",
+        destination: "/api/thumb/:roomID",
       },
     ];
   },

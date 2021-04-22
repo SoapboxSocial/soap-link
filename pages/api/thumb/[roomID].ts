@@ -9,7 +9,7 @@ const isHtmlDebug = process.env.OG_HTML_DEBUG === "1";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const roomID = req.query.id;
+    const roomID = req.query.roomID;
 
     const ENDPOINT = `https://metadata.soapbox.social/rooms/${roomID}`;
 
