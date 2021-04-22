@@ -18,36 +18,6 @@
   font-display: swap;
 }
 
-:root {
-  --background: #f2f2f7;
-  --brand: #8359fe;
-  --white: #fff;
-  --black: #000;
-  --systemGrey6: #f2f2f7;
-  --textPrimary: #000;
-  --roomBackground: #fff;
-}
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #000;
-    --systemGrey6: #1c1c1e;
-    --textPrimary: #fff;
-    --roomBackground: #1c1c1e;
-  }
-} */
-
-@supports (color: color(display-p3 1 1 1)) {
-  :root {
-    --brand: color(display-p3 0.5137 0.349 0.9961);
-  }
-}
-
-body {
-  background-color: var(--background);
-  color: var(--textPrimary);
-}
-
 .room {
   font-family: "SF Rounded Pro", -apple-system, BlinkMacSystemFont, Segoe UI,
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
@@ -63,30 +33,7 @@ body {
   overflow: visible !important;
 }
 
-@layer components {
-  .footer-item {
-    @apply mr-4 mb-2;
-  }
-  .footer-item-link {
-    @apply opacity-75 focus:outline-none focus:opacity-100 hover:opacity-100;
-  }
-}
-
 @layer utilities {
-  .crop::before,
-  .crop::after {
-    content: "";
-    display: block;
-    height: 0;
-    width: 0;
-  }
-  .crop::before {
-    margin-top: calc((1 - 1.85) * 0.5em);
-  }
-  .crop::after {
-    margin-bottom: calc((1 - 1.85) * 0.5em);
-  }
-
   .text-title1 {
     font-size: 1.75rem;
     line-height: 2.0625rem;
@@ -120,10 +67,10 @@ body {
   }
 
   .secondary {
-    @apply text-label-light text-opacity-secondary;
+    @apply text-label-light text-opacity-secondary dark:text-label-dark dark:text-opacity-secondary;
   }
 
   .tertiary {
-    @apply text-label-light text-opacity-tertiary;
+    @apply text-label-light text-opacity-tertiary dark:text-label-dark dark:text-opacity-tertiary;
   }
 }

@@ -54,7 +54,7 @@ function ProfileView({ profile }: { profile: Profile }) {
               {profile?.display_name ?? profile.username}
             </h1>
 
-            <p className="text-md text-black opacity-50">@{profile.username}</p>
+            <p className="text-md secondary">@{profile.username}</p>
           </div>
 
           {profile.bio && <p>{profile.bio}</p>}

@@ -48,7 +48,7 @@ function RoomView({ room }: { room: Room }) {
 
       <div className="w-full mx-auto" style={{ maxWidth: 428 }}>
         <a href={APP_LINK}>
-          <article className="room bg-white rounded-room p-5">
+          <article className="room bg-white text-black dark:bg-systemGrey6-dark dark:text-white rounded-room p-5">
             <h2
               className="text-title2 font-bold"
               style={{ marginBottom: "1.875rem" }}
@@ -58,10 +58,13 @@ function RoomView({ room }: { room: Room }) {
 
             <div className="flex -space-x-2">
               {room.members.slice(0, 6).map((member, i) => (
-                <div key={i} className="flex room-head overflow-visible">
+                <div
+                  key={i}
+                  className="flex rounded-full ring-4 ring-white dark:ring-systemGrey6-dark bg-white dark:bg-systemGrey6-dark"
+                >
                   <img
                     alt={member.display_name}
-                    className="h-10 w-10 room-head object-cover object-center rounded-full"
+                    className="h-10 w-10 object-cover object-center rounded-full"
                     draggable="false"
                     src={member.image}
                   />

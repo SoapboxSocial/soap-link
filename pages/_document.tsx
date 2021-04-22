@@ -43,7 +43,7 @@ export default class SoapLinkDocument extends Document {
           <meta name="theme-color" content="#8359fe" />
         </Head>
 
-        <body>
+        <body className="bg-systemGrey6-light text-black dark:bg-black dark:text-white">
           <Main />
 
           <NextScript />
