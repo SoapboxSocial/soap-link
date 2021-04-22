@@ -1,11 +1,16 @@
-import { useEffect } from "react";
+import { GetServerSideProps } from "next";
 import { SOAPBOX_URL } from "../constants";
 
-function IndexPage() {
-  useEffect(() => {
-    window.location.href = SOAPBOX_URL;
-  }, []);
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    redirect: {
+      destination: SOAPBOX_URL,
+      permanent: false,
+    },
+  };
+};
 
+function IndexPage() {
   return null;
 }
 
