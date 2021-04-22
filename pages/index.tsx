@@ -1,17 +1,12 @@
-import { GetStaticProps } from "next";
+import { useEffect } from "react";
 import { SOAPBOX_URL } from "../constants";
 
 function IndexPage() {
+  useEffect(() => {
+    window.location.href = SOAPBOX_URL;
+  }, []);
+
   return null;
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    redirect: {
-      destination: SOAPBOX_URL,
-      permanent: false,
-    },
-  };
-};
 
 export default IndexPage;
