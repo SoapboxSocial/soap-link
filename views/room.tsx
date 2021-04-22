@@ -1,6 +1,5 @@
 import { Fragment, useMemo } from "react";
 import Meta from "../components/meta";
-import RoomPreview from "../components/room-preview";
 import { APP_ID, APP_NAME } from "../constants";
 import { Room } from "../shared";
 
@@ -48,11 +47,40 @@ function RoomView({ room }: { room: Room }) {
       />
 
       <div className="w-full mx-auto" style={{ maxWidth: 428 }}>
-        <RoomPreview
-          buttonLink={APP_LINK}
-          roomName={room.name}
-          roomMembers={room.members}
-        />
+        <a href={APP_LINK}>
+          <article className="room bg-white rounded-room p-5">
+            <h2
+              className="text-title2 font-bold"
+              style={{ marginBottom: "1.875rem" }}
+            >
+              {room?.name ?? "Join in"}
+            </h2>
+
+            <div className="flex -space-x-2">
+              {room.members.slice(0, 6).map((member, i) => (
+                <div key={i} className="flex room-head overflow-visible">
+                  <img
+                    alt={member.display_name}
+                    className="h-10 w-10 room-head object-cover object-center rounded-full"
+                    draggable="false"
+                    src={member.image}
+                  />
+                </div>
+              ))}
+
+              {room.members.length > 6 && (
+                <div className="flex room-head bg-white overflow-visible">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full">
+                    <p className="text-black text-2xl leading-none font-black">
+                      <span className="text-sm font-bold align-top">+</span>
+                      {room.members.length - 6}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </article>
+        </a>
       </div>
     </main>
   );
