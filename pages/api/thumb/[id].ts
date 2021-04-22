@@ -2,17 +2,14 @@ import fs from "fs";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getScreenshot } from "../../../lib/chromium";
 import { getHtml } from "../../../lib/template";
-import { Room } from "../../shared";
+import { Room } from "../../../shared";
 
 const isDev = !process.env.AWS_REGION;
 const isHtmlDebug = process.env.OG_HTML_DEBUG === "1";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const roomID = req.query.id as string;
+    const roomID = req.query.id;
 
     const ENDPOINT = `https://metadata.soapbox.social/rooms/${roomID}`;
 
@@ -60,7 +57,7 @@ export default async function handler(
     res.setHeader("Content-Type", "image/jpeg");
     res.end(fallback);
   }
-}
+};
 
 const debugRoomData: Room = {
   id: 0,
