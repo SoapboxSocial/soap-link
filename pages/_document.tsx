@@ -43,7 +43,7 @@ export default class SoapLinkDocument extends Document {
           <meta name="theme-color" content="#8359fe" />
         </Head>
 
-        <body className="flex flex-col min-h-screen">
+        <body>
           <Main />
 
           <NextScript />

@@ -2,25 +2,9 @@
   "applinks": {
     "details": [
       {
-        "appIDs": [
-          "Z9LC5GZ33U.app.social.soapbox"
-        ],
-        "components": [
-          {
-            "/": "/login-pin",
-            "?": {
-              "pin": "??????"
-            },
-            "comment": "Matches any URL whose path is /login-pin and has a query of exactly 6 characters"
-          },
-          {
-            "/": "/room/*",
-            "comment": "Matches any URL whose path is /room/*"
-          },
-          {
-            "/": "/user/*",
-            "comment": "Matches any URL whose path is /user/*"
-          }
+        "appID": "Z9LC5GZ33U.app.social.soapbox",
+        "paths": [
+          "*"
         ]
       }
     ]

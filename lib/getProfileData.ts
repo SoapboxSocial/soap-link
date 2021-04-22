@@ -1,10 +1,10 @@
 import { GetServerSidePropsResult } from "next";
 import { SOAPBOX_URL } from "../constants";
-import { Member } from "../shared";
+import { Profile } from "../shared";
 
 export default async function getProfileData(
   username: string
-): Promise<GetServerSidePropsResult<{ profile: Member }>> {
+): Promise<GetServerSidePropsResult<{ profile: Profile }>> {
   try {
     const ENDPOINT = `https://metadata.soapbox.social/users/${username}`;
 
@@ -12,7 +12,7 @@ export default async function getProfileData(
 
     if (!res.ok) throw new Error(res.statusText);
 
-    const profile: Member = await res.json();
+    const profile: Profile = await res.json();
 
     return {
       props: {

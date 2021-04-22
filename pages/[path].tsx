@@ -2,7 +2,7 @@ import { GetServerSideProps } from "next";
 import { SOAPBOX_URL } from "../constants";
 import getProfileData from "../lib/getProfileData";
 import getRoomData from "../lib/getRoomData";
-import { Member, Room } from "../shared";
+import { Profile, Room } from "../shared";
 import ProfileView from "../views/profile";
 import RoomView from "../views/room";
 
@@ -27,7 +27,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 };
 
 type Props = {
-  profile?: Member;
+  profile?: Profile;
   room?: Room;
 };
 
