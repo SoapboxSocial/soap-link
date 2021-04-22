@@ -1,9 +1,12 @@
+import { trackGoal } from "fathom-client";
 import { MouseEvent } from "react";
-import { APP_STORE_URL } from "../constants";
+import { APP_STORE_URL, FATHOM_EVENTS } from "../constants";
 
 function DownloadBanner() {
   const handleOnClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+
+    trackGoal(FATHOM_EVENTS["Clicked Download Banner"], 0);
 
     window.location.href = e.currentTarget.href;
   };
