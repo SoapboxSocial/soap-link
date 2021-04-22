@@ -5,11 +5,23 @@ import { Member } from "../shared";
 export default async function getProfileData(
   username: string
 ): Promise<GetServerSidePropsResult<{ profile: Member }>> {
-  const ENDPOINT = `https://metadata.soapbox.social/users/${username}`;
+  try {
+    const ENDPOINT = `https://metadata.soapbox.social/users/${username}`;
 
-  const res = await fetch(ENDPOINT);
+    const res = await fetch(ENDPOINT);
 
-  if (!res.ok) {
+    if (!res.ok) throw new Error(res.statusText);
+
+    const profile: Member = await res.json();
+
+    return {
+      props: {
+        profile,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+
     return {
       redirect: {
         destination: SOAPBOX_URL,
@@ -17,12 +29,4 @@ export default async function getProfileData(
       },
     };
   }
-
-  const profile: Member = await res.json();
-
-  return {
-    props: {
-      profile,
-    },
-  };
 }

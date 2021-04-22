@@ -3,7 +3,7 @@ import Document, { Head, Html, Main, NextScript } from "next/document";
 export default class SoapLinkDocument extends Document {
   render() {
     return (
-      <Html lang="en" className="text-base sm:text-xl">
+      <Html lang="en">
         <Head>
           {/* Font Preload Tags */}
           <link
