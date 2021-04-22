@@ -1,5 +1,5 @@
 type Props = {
-  roomName: string;
+  roomName?: string;
   buttonLink: string;
   roomMembers: { display_name: string; image: string }[];
 };
@@ -16,7 +16,7 @@ export default function RoomPreview({
           className="text-title2 font-bold"
           style={{ marginBottom: "1.875rem" }}
         >
-          {roomName}
+          {roomName ?? "Join in"}
         </h2>
 
         <div className="flex -space-x-2">

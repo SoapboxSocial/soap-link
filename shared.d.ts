@@ -22,7 +22,7 @@ export type Group = {
 };
 
 export type Room = {
-  name: string;
+  name?: string;
   group?: Group;
   id: number;
   members: Member[];
