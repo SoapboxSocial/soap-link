@@ -72,9 +72,9 @@ function RoomView({ room }: { room: Room }) {
               ))}
 
               {room.members.length > 6 && (
-                <div className="flex room-head bg-white overflow-visible">
+                <div className="flex room-head bg-white dark:bg-systemGrey6-dark overflow-visible">
                   <div className="flex items-center justify-center w-10 h-10 rounded-full">
-                    <p className="text-black text-2xl leading-none font-black">
+                    <p className="text-black dark:text-white text-2xl leading-none font-black">
                       <span className="text-sm font-bold align-top">+</span>
                       {room.members.length - 6}
                     </p>
