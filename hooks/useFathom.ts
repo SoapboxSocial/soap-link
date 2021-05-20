@@ -8,13 +8,6 @@ export default function useFathom() {
       includedDomains: ["soap.link"],
     });
 
-    const url = window.location.href.startsWith("@")
-      ? window.location.href
-      : window.location.origin + "/[roomId]";
-
-    Fathom.trackPageview({
-      url: url,
-      referrer: document.referrer,
-    });
+    Fathom.trackPageview();
   }, []);
 }
